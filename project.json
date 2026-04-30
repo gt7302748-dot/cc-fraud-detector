@@ -1,0 +1,21 @@
+{
+  "overview": "A professional Credit Card Fraud Detection dashboard showcasing EDA visualizations, 8 ML model comparisons, Autoencoder anomaly detection, and AI-powered fraud insights via HTTP outcalls.",
+  "features": [
+    "EDA dashboard with class imbalance, distributions, and correlation charts",
+    "ML model comparison: 8 algorithms with AUC scores, confusion matrix, and ROC curve",
+    "Generative AI autoencoder anomaly detection results and metrics",
+    "Feature importance visualization (top 15 Random Forest features)",
+    "AI-powered fraud analysis insights via HTTP outcalls",
+    "Sidebar navigation with light/dark mode toggle"
+  ],
+  "category": "analytics",
+  "tags": [
+    "fraud-detection",
+    "machine-learning",
+    "data-visualization",
+    "recharts",
+    "autoencoder",
+    "ai-insights"
+  ],
+  "last_updated": "2026-04-29T09:48:52.631Z"
+}

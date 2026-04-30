@@ -1,0 +1,69 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type RocPoint = 
+ record {
+   fpr: float64;
+   tpr: float64;
+ };
+type ModelScore = 
+ record {
+   auc: float64;
+   name: text;
+ };
+type FeatureImportance = 
+ record {
+   feature: text;
+   importance: float64;
+ };
+type EdaStats = 
+ record {
+   fraudCases: nat;
+   fraudRate: float64;
+   legitimateCases: nat;
+   totalTransactions: nat;
+ };
+type ConfusionMatrix = 
+ record {
+   fn: nat;
+   fp: nat;
+   tn: nat;
+   tp: nat;
+ };
+type AutoencoderMetrics = 
+ record {
+   auc: float64;
+   f1: float64;
+   precision: float64;
+   recall: float64;
+   threshold: float64;
+ };
+service : {
+  analyzeTransaction: (features: vec float64) -> (text);
+  getAutoencoderMetrics: () -> (AutoencoderMetrics) query;
+  getConfusionMatrix: () -> (ConfusionMatrix) query;
+  getEdaStats: () -> (EdaStats) query;
+  getFeatureImportance: () -> (vec FeatureImportance) query;
+  getModelScores: () -> (vec ModelScore) query;
+  getRocCurve: () -> (vec RocPoint) query;
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+}
